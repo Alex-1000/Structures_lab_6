@@ -1,0 +1,4 @@
+#!/bin/env fish
+rm *_input
+rm *_tmp_A
+rm *_tmp_B

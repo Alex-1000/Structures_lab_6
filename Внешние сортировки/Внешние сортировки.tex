@@ -1,0 +1,91 @@
+% !TeX root = Внешние сортировки.tex
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+Исходный ряд: $48, 14, 28, 27, 55, 87, 71$
+\section*{Двухфазная сортировка прямым слиянием}
+$\begin{array}{rl}
+        f: & 48 ~|~ 14 ~|~ 28 ~|~ 27 ~|~ 55 ~|~ 87 ~|~ 71
+    \end{array}$ \newline
+1-й проход: \newline
+\indent Фаза разделения:
+$\begin{array}{rl}
+        g: & 48 ~|~ 28 ~|~ 55 ~|~ 71 \\
+        t: & 14 ~|~ 27 ~|~ 87        \\
+    \end{array}$ \newline
+\indent Фаза слияния:
+$\begin{array}{lr}
+        f: & 14 ~~ 48 ~|~ 27 ~~ 28 ~|~ 55 ~~ 87 ~|~ 71 \\
+    \end{array}$ \newline
+2-й проход: \newline
+\indent Фаза разделения:
+$\begin{array}{rl}
+        g: & 14 ~~ 48 ~|~ 55 ~~ 87 \\
+        t: & 27 ~~ 28 ~|~ 71       \\
+    \end{array}$ \newline
+\indent Фаза слияния:
+$\begin{array}{lr}
+        f: & 14 ~~ 27 ~~ 28 ~~ 48 ~|~ 55 ~~ 71 ~~ 87 \\
+    \end{array}$ \newline
+3-й проход: \newline
+\indent Фаза разделения:
+$\begin{array}{rl}
+        g: & 14 ~~ 27 ~~ 28 ~~ 48 \\
+        t: & 55 ~~ 71 ~~ 87       \\
+    \end{array}$ \newline
+\indent Фаза слияния:
+$\begin{array}{lr}
+        f: & 14 ~~ 27 ~~ 28 ~~ 48 ~~ 55 ~~ 71 ~~ 87 \\
+    \end{array}$ \newline
+
+\section*{Однофазная сортировка прямым слиянием}
+$\begin{array}{rl}
+        g_1: & 48 ~|~ 14 ~|~ 28 ~|~ 27 ~|~ 55 ~|~ 87 ~|~ 71 \\
+    \end{array}$ \newline
+Разбиваем последовательность:
+$\begin{array}{rl}
+        f_1: & 48 ~|~ 28 ~|~ 55 ~|~ 71 \\
+        f_2: & 14 ~|~ 27 ~|~ 87        \\
+    \end{array}$ \newline
+Сливаем в $g_1$ и $g_2$:
+$\begin{array}{rl}
+        g_1: & 14 ~~ 48 ~|~ 55 ~~ 87 \\
+        g_2: & 27 ~~ 28 ~|~ 71       \\
+    \end{array}$ \newline
+Сливаем в $f_1$ и $f_2$:
+$\begin{array}{rl}
+        f_1: & 14 ~~ 27 ~~ 28 ~~ 48 ~| \\
+        f_2: & 55 ~~ 71 ~~ 87 ~|       \\
+    \end{array}$ \newline
+Сливаем в одну последовательность:
+$\begin{array}{rl}
+        g_1: & 14 ~~ 27 ~~ 28 ~~ 48 ~~ 55 ~~ 71 ~~ 87 \\
+    \end{array}$ \newline
+
+\section*{Сортировка естественным слиянием}
+$\begin{array}{rl}
+        f: & 48 ~|~ 14 ~|~ 28 ~|~ 27 ~|~ 55 ~|~ 87 ~|~ 71 \\
+    \end{array}$ \newline
+1-й проход: \newline
+\indent Фаза распределения:
+$\begin{array}{rl}
+        g: & 48 ~|~ 27 ~~ 55 ~~ 87 \\
+        t: & 14 ~~ 28 ~|~ 71       \\
+    \end{array}$ \newline
+\indent Фаза слияния:
+$\begin{array}{lr}
+        f: & 14 ~~ 28 ~~ 48 ~~ 27 ~~ 55 ~~ 71 ~~ 87 \\
+    \end{array}$ \newline
+2-й проход: \newline
+\indent Фаза разделения:
+$\begin{array}{rl}
+        g: & 14 ~~ 28 ~~ 48       \\
+        t: & 27 ~~ 55 ~~ 71 ~~ 87 \\
+    \end{array}$ \newline
+\indent Фаза слияния:
+$\begin{array}{lr}
+        f: & 14 ~~ 27 ~~ 28 ~~ 48 ~~ 55 ~~ 71 ~~ 87 \\
+    \end{array}$ \newline
+\end{document}
