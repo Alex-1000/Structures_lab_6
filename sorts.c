@@ -52,7 +52,6 @@ void copyFile(char* source, char* destination) {
 }
 
 // Сортировка естественным слиянием
-// void extMergeSort(char* array_file, char* tmp_file_A, char* tmp_file_B) {
 void extMergeSort(char* input_file, char* result_file) {
     size_t sequence_count; // Количество отсортированных последовательностей
     sequence_count = 2; // Бессмысленное значение для запуска цикла
